@@ -86,19 +86,20 @@ hr {
 /** Weekly entries **/
 .accordion {
     background-color: #0097A7;
-    color: #444;
+    color: black;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
-    font-size: 15px;
+    font-size: 18px;
     transition: 0.4s;
 }
 
 .accordion.active, .accordion:hover {
-    background-color: gold;
+    background-color: #55ABDA;
+    color: gold;
 }
 
 .panel {
@@ -107,3 +108,5 @@ hr {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    
+}
