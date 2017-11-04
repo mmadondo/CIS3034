@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Malvern Madondo"/>
+        <title>Malvern Madondo</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div>
+            <header>
+                <h1>Malvern Madondo</h1>
+                <img class="profile_pic" src="images/mal_HoloLens.jpg" width="300">
+            
+                <div id="topnav">
+                    <ul>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="https://www.linkedin.com/in/malvernmadondo" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/mmadondo" target="_blank">GitHub</a></li>
+                        <li><a href="https://twitter.com/malvernmadondo" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </header>
+            
+            <article>
+                <p>Hi! I'm Malvern and I am a junior at the College of St. Scholastica in Duluth, MN. I study Computer Information Systems and Mathematics. I will be documenting my progress in CIS 3034 [Client-side Web Development course] at the end of each week. This is a sneaky way for me to stay on top of things and to document my learning process!</p>
+                <hr>
+   
+            <p style="font-style: italic">* Click on the [+] to open the collapsible content.</p>
+            </article>
+            <button class="accordion" style="text-align: center">[+] Week 1 - The Beginning</button>
+                <div class="panel">
+                    <h4>What did you do this past week?</h4>
+                        <p>hdfhd</p>
+                    <h4>What’s in your way?</h4>
+                        <p>snjbsksn</p>
+                    <h4>What will you do next week?</h4>
+                        <p>sdkskdv,</p>
+                    <h4>Impressions</h4>
+                        <p>sjdkj</p>
+                    <h4>Tip of the week</h4>
+                        <p>sjdkj</p>
+                </div>
+            <button class="accordion" style="text-align: center">[+] Week 2</button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+            <button class="accordion" style="text-align: center">[+] Week 3</button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            
+            <script>var acc = document.getElementsByClassName("accordion");
+                    var i;
+
+                    for (i = 0; i < acc.length; i++) {
+                        acc[i].onclick = function() {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight){
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                            } 
+                        }
+                    }
+            //thanks to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_animate for the code
+            </script>
+            
+        </div>
+    </body>
+</html>
