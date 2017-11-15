@@ -54,14 +54,26 @@
         num2 = document.getElementById("grok").value;
 
         // If num1 or num2 is Not a Number
-        if (isNaN(num1) || isNaN(num2) || num1 < 0 || num2 < 0){
+        if (isNaN(num1) || isNaN(num2)){
             result = "Invalid input";
         } else {
-
-            if (num2 < (0.5*num1) + 7) {
-                result = "Not dateable! The person has to be at least 7 years more than half your age.";
-            } else{
-                result = "Hello Cupid! At last, someone dateable!!";
+            //Case 1: The impossible to date
+            if(num1 <= 0 || num2 <= 0){
+                result = "Grow up first...then date later."
+            }
+            //case 2: When you defy the dating rule 
+            else if (num1 < (0.5*num2) + 7) {
+                result = "A little too young?! You must be at least 7 years more than half the person's age to date.";
+            } 
+            
+            //case 3: When the other person defies the dating rule
+            else if(num2 < (0.5*num1) + 7){
+                result = "Not dateable! The person must be at least 7 years more than half YOUR age to date."
+            }
+            
+            //case 4: When your ages match
+            else{
+                result = "At last, someone dateable!!";
             }
 
         }
