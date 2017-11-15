@@ -57,8 +57,14 @@
         if (isNaN(num1) || isNaN(num2)){
             result = "Invalid input";
         } else {
+            
+            //Case 0: Empty input
+            if(num1 == "" || num2 == ""){
+                result = "This machine needs numbers to crunch. Enter ages in years please."
+            }
+            
             //Case 1: The impossible to date
-            if(num1 <= 0 || num2 <= 0){
+            else if(num1 <= 0 || num2 <= 0){
                 result = "Grow up first...then date later."
             }
             //case 2: When you defy the dating rule 
