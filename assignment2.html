@@ -55,7 +55,7 @@
 
         // If num1 or num2 is Not a Number
         if (isNaN(num1) || isNaN(num2)){
-            result = "Invalid input";
+            result = "Invalid input. Please enter numbers.";
         } else {
             
             //Case 0: Empty input
@@ -64,12 +64,12 @@
             }
             
             //Case 1: The impossible to date
-            else if(num1 <= 0 || num2 <= 0){
-                result = "Grow up first...then date later."
+            else if(num1 <= 12 || num2 <= 12){
+                result = "A little too young maybe?!"
             }
             //case 2: When you defy the dating rule 
             else if (num1 < (0.5*num2) + 7) {
-                result = "A little too young?! You must be at least 7 years more than half the person's age to date.";
+                result = "You must be at least 7 years more than half the person's age to date.";
             } 
             
             //case 3: When the other person defies the dating rule
