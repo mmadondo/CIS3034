@@ -3,8 +3,6 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--source = "https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_todo"--==--Revised the styling and adding a completed section to group items that are done-->
-    
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -82,11 +80,6 @@
           font-size: 18px;
           transition: 0.2s;
 
-          /* make the list items unselectable */
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
         }
             
             
@@ -146,23 +139,16 @@
     <body>
         <div id="myDIV" class="header">
           <h2 style="margin:5px; text-shadow: 2px 2px black">My To Do List</h2>
-          <input type="text" id="myInput" placeholder="What needs to be done...">
-          <span onclick="addTask()" class="addButton">Add</span>
+            <p style="font-size: 16px">Add item. Click item (or the 'x') to remove from list.</p>
+            <form> 
+                <input type="text" id="myInput" placeholder="What needs to be done...">
+                <input type="button" class="addButton" onclick="addTask()" value="Add"  /> 
+            </form>
         </div>
 
-        <ul id="incomplete-task">
-          <li>Revise Data Structures and Algorithms</li>
-          <li class="complete">Get groceries</li>
-          <li>Study for Abstract Algebra exam on Monday</li>
-          <li>Work on research project</li>
-          <li>Listen to Eric Donaldson and Jimi Hendrix songs!</li>
-          <li>Hike the Appalachian Trails by 2019</li>
-          <li class="complete">Volunteer at Lincoln Park Middle School on Friday</li>
+        <ul id="toDo-task">
         </ul>
-        
-        <!--h2>Completed</h2>
-        <ul id="complete-task">
-        </ul-->
+
          
         <!--=======================THE ENGINE=============================-->
         <script>
@@ -191,7 +177,8 @@
         var list = document.querySelector('ul');
         list.addEventListener('click', function(ev) {
           if (ev.target.tagName === 'LI') {
-            ev.target.classList.toggle('complete');
+            ev.target.style.display = "none"; //remove item from list
+            //ev.target.classList.toggle('complete');   //mark complete on select
           }
         }, false);
 
@@ -204,7 +191,7 @@
           if (inputValue === '') {
             alert("You must write something!");
           } else {
-            document.getElementById("incomplete-task").appendChild(listItem);
+            document.getElementById("toDo-task").appendChild(listItem);
           }
             
           document.getElementById("myInput").value = "";
@@ -224,7 +211,7 @@
         }
             
         //Completed tasks
-        //var incompleteTask = document.getElementById("incomplete-task");
+        //var incompleteTask = document.getElementById("toDo-task");
         //var completeTask = document.getElementById("complete-task");
         
          
