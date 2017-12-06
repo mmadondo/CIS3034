@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Color Match Drag and Drop Game</title>
+    
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="external/jquery/jquery.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    
+	<style>
+        .ui-progressbar{
+            position: relative;
+        }
+        
+        .progress-label{
+            position: absolute;
+            left: 50%;
+            top: 4px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 #fff;
+        }
+        
+        #colors {
+          position: absolute;
+          margin-left: 400px;
+        }
+
+        .ui-draggable {
+          width: 100px;
+          height: 100px;
+          margin: 20px;
+          cursor: pointer;
+          border: 1px solid black;
+          box-sizing: border-box;
+        }
+
+        #boxes {
+          position: absolute;
+          left: 200px;
+        }
+
+        #boxes>div {
+          border: 1px solid black;
+          height: 100px;
+          width: 100px;
+          margin: 20px;
+          text-align: center;
+          padding-top: 40px;
+          box-sizing: border-box;
+          line-height: 10px;
+        }
+	</style>
+</head>
+<body>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <h2>Color Match Game</h2>
+    <div id ="progressbar"><div class="progress-label">Loading...</div></div>
+    <div id="colors"></div>
+    <div id="boxes"></div>
+     <div>
+        <button id="restart">Restart Game</button>
+    </div>
+    
+    
+    <script>
+                function randomize(array) {
+          return array.sort(function() {
+            return 0.5 - Math.random();
+          });
+        };
+        var i = 0,
+          colors = randomize(["Red", "Blue", "Green", ]);
+        
+        
+        for (; i < colors.length; i++) {
+          $("<div>", {
+              id: colors[i]
+            })
+            .css("background", colors[i])
+            .appendTo("#colors")
+            .draggable({
+              revert: "invalid",
+              zIndex: 2
+            });
+        }
+        
+                randomize(colors);
+        for (i = 0; i < colors.length; i++) {
+          $("<div>", {
+              text: colors[i]
+            })
+            .appendTo("#boxes");
+        }
+        
+        $("#boxes > div").droppable({
+          accept: function(draggable) {
+            return $(this).text() == draggable.attr("id");
+          },
+          drop: function(event, ui) {
+            var color = ui.draggable.css("background-color");
+            $(this).css("background", color).addClass("filled");
+            ui.draggable.hide("puff");
+
+            if ($(".filled").length === colors.length) {
+              alert("Good Job!");
+
+            }
+          }
+        });
+        
+        $("#restart").button().on("click", function(){
+              setTimeout(function() {
+                window.location = window.location;
+              }, 1000);
+            
+        });
+        
+          $( function() {
+    var progressbar = $( "#progressbar" ),
+      progressLabel = $( ".progress-label" );
+ 
+    progressbar.progressbar({
+      value: false,
+      change: function() {
+        progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+      },
+      complete: function() {
+        progressLabel.text( "Complete!" );
+        progressbar.fadeOut("slow");
+      }
+    });
+ 
+    function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+ 
+      progressbar.progressbar( "value", val + 5 );
+ 
+      if ( val < 95 ) {
+        setTimeout( progress, 80 );
+      }
+    }
+ 
+    setTimeout( progress, 1000 );
+  } );
+    </script>
+    </body>
+</html>
