@@ -21,6 +21,9 @@
           margin: 0 auto;
           background-color: #0097A7;
         }
+        
+            
+        }
             
         .ui-progressbar{
             position: relative;
@@ -29,14 +32,15 @@
         .progress-label{
             position: absolute;
             left: 50%;
-            top: 4px;
+            top: 90px;
             font-weight: bold;
             text-shadow: 1px 1px 0 #fff;
+            color: chartreuse;
         }
         
         #fruits {
           position: absolute;
-          margin-left: 400px;
+          margin-left: 650px;
         }
 
         .ui-draggable {
@@ -50,7 +54,9 @@
 
         #boxes {
           position: absolute;
-          left: 200px;
+          left: 450px;
+          color: chartreuse;
+            font-weight: 600;
         }
 
         #boxes>div {
@@ -70,18 +76,16 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     
-    <h2 style="margin:5px; text-shadow: 1px 1px black; text-align: center">Fruit Matching Game</h2>
+    <h2 style="margin:5px; color: chartreuse; text-align: center">Fruit Matching Game</h2>
     <p style="font-style: italic; text-align: center">Are you a fruit ninja? Match the fruits below with their names on the left!</p>
     <div id ="progressbar"><div class="progress-label">Loading...</div></div>
     <section id="fruitSection" style="align-content: center">
     <div id="fruits"></div>
     <div id="boxes"></div>
     </section>
-    
-     <div style="position: absolute">
-        <button id="restart">Restart Game</button>
-    </div>
-    
+
+        <button id="restart" style="margin-left: 150px; margin-top: 50px; font-weight: bold">Restart Game</button>
+ 
     
     <script>
          $("#restart").hide(); //to show after game ends
