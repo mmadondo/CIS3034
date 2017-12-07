@@ -5,13 +5,23 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Color Match Drag and Drop Game</title>
-    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="jquery-ui.min.css">
     <script src="external/jquery/jquery.js"></script>
     <script src="jquery-ui.min.js"></script>
     
+	<title>Fruit Ninja Game!</title>
 	<style>
+        body {
+          min-width: 250px;
+          font-family: 'Open Sans', sans-serif;
+          font-family: "robotoRegular";
+          font-size: 16px;
+          margin: 0 auto;
+          background-color: #0097A7;
+        }
+            
         .ui-progressbar{
             position: relative;
         }
@@ -24,16 +34,16 @@
             text-shadow: 1px 1px 0 #fff;
         }
         
-        #colors {
+        #fruits {
           position: absolute;
           margin-left: 400px;
         }
 
         .ui-draggable {
-          width: 100px;
-          height: 100px;
+          width: 150px;
+          height: 150px;
           margin: 20px;
-          cursor: pointer;
+          cursor: grab;
           border: 1px solid black;
           box-sizing: border-box;
         }
@@ -45,8 +55,8 @@
 
         #boxes>div {
           border: 1px solid black;
-          height: 100px;
-          width: 100px;
+          height: 150px;
+          width: 150px;
           margin: 20px;
           text-align: center;
           padding-top: 40px;
@@ -60,41 +70,77 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     
-    <h2>Color Match Game</h2>
+    <h2 style="margin:5px; text-shadow: 1px 1px black; text-align: center">Fruit Matching Game</h2>
+    <p style="font-style: italic; text-align: center">Are you a fruit ninja? Match the fruits below with their names on the left!</p>
     <div id ="progressbar"><div class="progress-label">Loading...</div></div>
-    <div id="colors"></div>
+    <section id="fruitSection" style="align-content: center">
+    <div id="fruits"></div>
     <div id="boxes"></div>
-     <div>
+    </section>
+    
+     <div style="position: absolute">
         <button id="restart">Restart Game</button>
     </div>
     
     
     <script>
-                function randomize(array) {
-          return array.sort(function() {
-            return 0.5 - Math.random();
+         $("#restart").hide(); //to show after game ends
+        
+        //progress bar AT START
+          $( function() {
+        var progressbar = $( "#progressbar" ),
+        progressLabel = $( ".progress-label" );
+ 
+        progressbar.progressbar({
+            value: false,
+            change: function() {
+                progressLabel.text( progressbar.progressbar( "value" ) + "%" );
+            },
+       
+        complete: function() {
+            progressLabel.text( "Begin!!" );
+            progressbar.fadeOut("slow", function(){
+                                
+            //===========AFTER LOADING PROGRESS BAR. CALLBACK FUNCTION BEGINS========================
+            
+            function randomize(array) {
+           return array.sort(function() {
+               return 0.5 - Math.random();
           });
         };
+        
         var i = 0,
-          colors = randomize(["Red", "Blue", "Green", ]);
+    
+          fruitList = randomize([{
+                url: 'https://images-na.ssl-images-amazon.com/images/I/71OebfTPCiL._SX466_.jpg',
+                key: 'Banana'
+            }, {
+                url: 'https://images-na.ssl-images-amazon.com/images/I/91PD3DRbUaL._SX355_.jpg',
+                key: 'Mango'
+            }, {
+                url: 'https://www.growerssolution.com/mm5/graphics/00000002/Grapes.jpg',
+                key: 'Grapes'
+            }, {
+                url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1eHlenR52E_fNiJTrixrl_xMwLOX8PpHPqutvUdMTadwnKj4JTA',
+                key: 'Kiwi'
+            } ]);
         
-        
-        for (; i < colors.length; i++) {
+        for (; i < fruitList.length; i++) {
           $("<div>", {
-              id: colors[i]
+              id: fruitList[i].key 
             })
-            .css("background", colors[i])
-            .appendTo("#colors")
+            .css("background-image", "url(" + fruitList[i].url + ")")
+            .appendTo("#fruits")
             .draggable({
               revert: "invalid",
               zIndex: 2
             });
         }
         
-                randomize(colors);
-        for (i = 0; i < colors.length; i++) {
+        randomize(fruitList);
+        for (i = 0; i < fruitList.length; i++) {
           $("<div>", {
-              text: colors[i]
+              text: fruitList[i].key
             })
             .appendTo("#boxes");
         }
@@ -104,51 +150,43 @@
             return $(this).text() == draggable.attr("id");
           },
           drop: function(event, ui) {
-            var color = ui.draggable.css("background-color");
-            $(this).css("background", color).addClass("filled");
-            ui.draggable.hide("puff");
+            var fruit = ui.draggable.css("background-image");
+            $(this).css("background-image", fruit).addClass("filled");
+            ui.draggable.hide("puff");  //puff effect
 
-            if ($(".filled").length === colors.length) {
-              alert("Good Job!");
-
+            if ($(".filled").length === fruitList.length) {
+              alert("True Fruit Ninja!!");
+               $("#restart").show(); //show restart button
             }
           }
         });
         
-        $("#restart").button().on("click", function(){
+            $("#restart").button().on("click", function(){
               setTimeout(function() {
                 window.location = window.location;
               }, 1000);
             
         });
-        
-          $( function() {
-    var progressbar = $( "#progressbar" ),
-      progressLabel = $( ".progress-label" );
- 
-    progressbar.progressbar({
-      value: false,
-      change: function() {
-        progressLabel.text( progressbar.progressbar( "value" ) + "%" );
-      },
-      complete: function() {
-        progressLabel.text( "Complete!" );
-        progressbar.fadeOut("slow");
-      }
+            //=============================CALLBACK FUNCTION ENDS====================================   
+         });
+            
+        }
     });
  
-    function progress() {
-      var val = progressbar.progressbar( "value" ) || 0;
+        //progress bar value incrementing
+        function progress() {
+            var val = progressbar.progressbar( "value" ) || 0;
  
-      progressbar.progressbar( "value", val + 5 );
+            progressbar.progressbar( "value", val + 5 );
  
-      if ( val < 95 ) {
-        setTimeout( progress, 80 );
-      }
-    }
+            if ( val < 95 ) {
+                setTimeout( progress, 80 );
+            }
+        }
  
-    setTimeout( progress, 1000 );
-  } );
+        setTimeout( progress, 1000 );
+        } );
+        
     </script>
     </body>
 </html>
