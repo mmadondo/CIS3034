@@ -102,6 +102,10 @@ hr {
     color: gold;
 }
 
+.accordion:before{
+  content: '[+] ';
+}
+
 .panel {
     padding: 0 18px;
     background-color: #0097A7;
