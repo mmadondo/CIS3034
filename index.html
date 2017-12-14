@@ -6,11 +6,22 @@
         <meta name="author" content="Malvern Madondo"/>
         <title>Malvern Madondo</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="jquery-ui.min.css">
-        <script src="external/jquery/jquery.js"></script>
-        <script src="jquery-ui.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        
+        $(function() {
+    var $accordions = $(".accordion").accordion({
+        collapsible: true,
+        active: false,
+        icons: false
+    }).on('click', function() {
+        $accordions.not(this).accordion('activate', false);
+    });
+});
+        </script>
     </head>
     
     <body>
@@ -34,10 +45,9 @@
                 <p>Kwaziso! Ndinofara kwazvo kuti washanyira website yangu. Ndinodzidza pachikoro chinonzi College of St. Scholastica chiri kuDuluth, MN. <br>Ndiri mugore rechitatu mandiri kudzidza Computer Information Systems ne Mathematics.<br> Pawebsite ino ndichange ndichinyora zvandiri kudzidza muCIS 3034 [Client-side Web Development course].<br>Stay tuned!</p> <!--endOf intro-->
                 <hr>
                 
-                <p style="font-style: italic">* Click on the [+] to open the collapsible content.</p>
+                <p style="font-style: italic; animation: 2s flash; animation-iteration-count: infinite;">* Click on the [+] to open the collapsible content.</p>
                 
             </article>
-            <div class="uiAccordion">
             
             <!--Week 1 stuff here-->
             <button class="accordion" style="text-align: center">Week 1</button>
@@ -207,43 +217,30 @@ are two of the surest stepping stones to success.” - Dale Carnegie</p>
                         <p>Lorem ipsum dolor sit amet, ...
                     </p>
                 </div>
-                
-            </div> <!--end of jquery accordion-->
             
-            <script>
-                
-                //close accordion when another opens
-                
+            <script>    
                 var acc = document.getElementsByClassName("accordion");
-                    var i;
+                var panels = document.getElementsByClassName("panel");
+                var i;
+                var j;
 
-                    for (i = 0; i < acc.length; i++) {
-                        acc[i].onclick = function() {
-                        this.classList.toggle("active");
-                            if(this.getElementsByClassName){
-                        var panel = this.nextElementSibling;
-                        if (panel.style.maxHeight){
-                            panel.style.maxHeight = null;
-                        } else {
-                            panel.style.maxHeight = panel.scrollHeight + "px";
-                            } 
-                        }
-                         }
-                     
+                var handleAccordionClick = function(){
+                    for(j = 0; j < panels.length; j++){
+                        acc[j].classList.remove("active");
+                        panels[j].classList.remove("show");
                     }
-                                        
-                       $( function() {
-                           $( ".accordion" ).accordion({
-                               collapsible: true
-                           });
-                    } );   
-                
-            //thanks to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_animate for the code
+                    this.classList.add("active");
+                    this.nextElementSibling.classList.add("show");
+                }
 
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].onclick = handleAccordionClick;    
+                }
             </script>
-            
+
+ <p>Thank you for visiting my site!!.</p>      
         </div>
-    <div class="row text-center">
+       <div class="row text-center">
         <p style= "font-size: 14px">&copy;2017 Code Duluth. All Rights Reserved. Designed with <i class = "fa fa-heart" style="color: red"></i> by Malvern Madondo. </p>
      </div>
         
