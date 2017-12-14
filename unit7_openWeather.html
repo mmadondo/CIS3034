@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Malvern Madondo"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Unit 7 OpenWeatherMap</title>
+        <style>
+        
+         /** Body Styling**/
+         body {
+              font-family: 'Open Sans', sans-serif;
+              font-family: "robotoRegular";
+              font-size: 16px;
+              text-align: center;
+              margin: 0 auto;
+              float: none;
+              padding-top: 50px;
+              background-color: #0097A7;
+            }
+        
+            /** Heading Styling**/
+            h2{
+                font-size: 36px;
+                font-family: $open-sans;
+                font-weight: bold;
+                
+            }
+
+        </style>
+
+    </head>
+    
+    <body>
+        <h2>Weather Application</h2>
+        <p>Enter a ZIP Code below to find out about the forecast!</p>
+    <p id="myForm">
+        <label>Enter ZIP code:</label>
+        <input type="text" id="zipCode">
+        <button onclick="getWeather()" id="results">Get Data</button>
+    </p>
+        
+    <p id="showResult"></p>
+        
+        <script> 
+            function getWeather(){
+                var base_url = "http://api.openweathermap.org/data/2.5/weather?zip="
+                var api_key = "&APPID=acd3ddac4415c8e25c37121c5b18d182&units=metric";
+                var zip = document.getElementById("zipCode").value;
+                var api_url = base_url + zip + ",us" + api_key;
+                var linebreak = document.createElement("br");
+                
+                $.getJSON(api_url, function( data ) {
+
+                    var city = data.name;
+                    var country = data.sys.country;
+                    var humidity = data.main.humidity;
+                    var windSpeed = data.wind.speed;
+                    var temperature = data.main.temp;
+                    var weatherDescrpt = data.weather[0].description;
+
+                     $('#showResult').html("<b>City: </b>" + city + ", " + country+ "<br/>" + "<b>Temperature: </b>" + temperature + "°C" +  "<br/>" + "<b>Weather: </b>"+ weatherDescrpt +  "<br/>" + "<b>Humidity: </b>" + humidity + "%"+  "<br/>" + "<b>Wind Speed: </b>" + windSpeed + "mph");
+                });
+                
+                //document.getElementById("showResult").innerHTML = "Results: " + api_url + ".";
+        }
+    </script>
+</body>
+</html>
