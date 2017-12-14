@@ -6,6 +6,9 @@
         <meta name="author" content="Malvern Madondo"/>
         <title>Malvern Madondo</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="jquery-ui.min.css">
+        <script src="external/jquery/jquery.js"></script>
+        <script src="jquery-ui.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -34,6 +37,7 @@
                 <p style="font-style: italic">* Click on the [+] to open the collapsible content.</p>
                 
             </article>
+            <div class="uiAccordion">
             
             <!--Week 1 stuff here-->
             <button class="accordion" style="text-align: center">Week 1</button>
@@ -203,13 +207,20 @@ are two of the surest stepping stones to success.” - Dale Carnegie</p>
                         <p>Lorem ipsum dolor sit amet, ...
                     </p>
                 </div>
+                
+            </div> <!--end of jquery accordion-->
             
-            <script>var acc = document.getElementsByClassName("accordion");
+            <script>
+                
+                //close accordion when another opens
+                
+                var acc = document.getElementsByClassName("accordion");
                     var i;
 
                     for (i = 0; i < acc.length; i++) {
                         acc[i].onclick = function() {
                         this.classList.toggle("active");
+                            if(this.getElementsByClassName){
                         var panel = this.nextElementSibling;
                         if (panel.style.maxHeight){
                             panel.style.maxHeight = null;
@@ -217,8 +228,18 @@ are two of the surest stepping stones to success.” - Dale Carnegie</p>
                             panel.style.maxHeight = panel.scrollHeight + "px";
                             } 
                         }
+                         }
+                     
                     }
+                                        
+                       $( function() {
+                           $( ".accordion" ).accordion({
+                               collapsible: true
+                           });
+                    } );   
+                
             //thanks to https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_animate for the code
+
             </script>
             
         </div>

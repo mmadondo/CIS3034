@@ -52,6 +52,8 @@ hr {
 	margin:0;
 	padding:0 0 5px 0;
 	text-align: center;
+    animation: 2s flash;
+    animation-iteration-count: infinite;
 	}
 
 #topnav, #topnav a{
@@ -95,6 +97,24 @@ hr {
     outline: none;
     font-size: 18px;
     transition: 0.4s;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.0;
+  }
+}
+
+@keyframes flash{
+  0% {
+    text-shadow: 0px 0px 5px yellow;
+  }
+  50% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 0px 0px 5px gold;
+  }
 }
 
 .accordion.active, .accordion:hover {
