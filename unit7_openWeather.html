@@ -4,12 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Malvern Madondo"/>
+        <meta name="description" content="A simple weather web app utilizing the OpenWeatherMap API"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title>Unit 7 OpenWeatherMap</title>
+        <title><i class="fa fa-bolt" aria-hidden="true"></i>Unit 7 OpenWeatherMap</title>
         <style>
-        
+
          /** Body Styling**/
          body {
               font-family: 'Open Sans', sans-serif;
@@ -27,23 +28,55 @@
                 font-size: 36px;
                 font-family: $open-sans;
                 font-weight: bold;
+                color: gold;
+                font-weight: bolder;
+                text-align: center;
                 
             }
+            
+            label{
+                font-size: 20px;
+                font-family: $open-sans;
+                font-weight: 100;
+            }
+            
+            /* Style the input */
+            input {
+                border: none;
+                width: 25%;
+                padding: 10px 0px 10px 0px;
+                font-size: 20px;
+                text-align: center;
+            }
 
+            /* Style the "Get Data" button */
+            .resultsBtn {
+                padding: 10px 0px 10px 0px;
+                width: 25%;
+                background: gold;
+                color: black;
+                text-align: center;
+                font-size: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .resultsBtn:hover {
+                background-color: #0097A7;
+            }
         </style>
-
     </head>
     
     <body>
-        <h2>Weather Application</h2>
-        <p>Enter a ZIP Code below to find out about the forecast!</p>
-    <p id="myForm">
-        <label>Enter ZIP code:</label>
-        <input type="text" id="zipCode">
-        <button onclick="getWeather()" id="results">Get Data</button>
-    </p>
+        <h2><i class="fa fa-sun-o" aria-hidden="true"></i> Weather Application <i class="fa fa-cloud" aria-hidden="true"></i></h2>
+        <p>Under the weather today? Check the forecast!</p>
+        <p id="myForm">
+            <label>Enter ZIP code:</label>
+            <input type="text" id="zipCode">
+            <button onclick="getWeather()" class="resultsBtn">Get Data</button>
+        </p>
         
-    <p id="showResult"></p>
+        <p id="showResult"></p>
         
         <script> 
             function getWeather(){
@@ -62,11 +95,11 @@
                     var temperature = data.main.temp;
                     var weatherDescrpt = data.weather[0].description;
 
-                     $('#showResult').html("<b>City: </b>" + city + ", " + country+ "<br/>" + "<b>Temperature: </b>" + temperature + "°C" +  "<br/>" + "<b>Weather: </b>"+ weatherDescrpt +  "<br/>" + "<b>Humidity: </b>" + humidity + "%"+  "<br/>" + "<b>Wind Speed: </b>" + windSpeed + "mph");
+                     $('#showResult').html("<b>City: </b>" + city + ", " + country+ "<br/>" + "<b>Temperature: </b>" + temperature + "°C" +  "<br/>" + "<b>Description: </b>"+ weatherDescrpt +  "<br/>" + "<b>Humidity: </b>" + humidity + "%"+  "<br/>" + "<b>Wind Speed: </b>" + windSpeed + "m/s");
                 });
                 
                 //document.getElementById("showResult").innerHTML = "Results: " + api_url + ".";
-        }
-    </script>
-</body>
+            }
+        </script>
+    </body>
 </html>
