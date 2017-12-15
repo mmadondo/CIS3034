@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title><i class="fa fa-bolt" aria-hidden="true"></i>Unit 7 OpenWeatherMap</title>
+        <title>Unit 7 OpenWeatherMap</title>
         <style>
 
          /** Body Styling**/
@@ -71,34 +71,32 @@
         <h2><i class="fa fa-sun-o" aria-hidden="true"></i> Weather Application <i class="fa fa-cloud" aria-hidden="true"></i></h2>
         <p>Under the weather today? Check the forecast!</p>
         <p id="myForm">
-            <label>Enter ZIP code:</label>
-            <input type="text" id="zipCode">
+            <label>Enter City ZIP code:</label>
+            <input type="number" id="zipCode">
             <button onclick="getWeather()" class="resultsBtn">Get Data</button>
         </p>
         
         <p id="showResult"></p>
         
         <script> 
-            function getWeather(){
+
+             function getWeather(){
                 var base_url = "http://api.openweathermap.org/data/2.5/weather?zip="
                 var api_key = "&APPID=acd3ddac4415c8e25c37121c5b18d182&units=metric";
                 var zip = document.getElementById("zipCode").value;
                 var api_url = base_url + zip + ",us" + api_key;
-                var linebreak = document.createElement("br");
-                
-                $.getJSON(api_url, function( data ) {
 
-                    var city = data.name;
-                    var country = data.sys.country;
-                    var humidity = data.main.humidity;
-                    var windSpeed = data.wind.speed;
-                    var temperature = data.main.temp;
-                    var weatherDescrpt = data.weather[0].description;
-
+                    $.getJSON(api_url, function( data ) {
+                        var city = data.name;
+                        var country = data.sys.country;
+                        var humidity = data.main.humidity;
+                        var windSpeed = data.wind.speed;
+                        var temperature = data.main.temp;
+                        var weatherDescrpt = data.weather[0].description;
+                    
                      $('#showResult').html("<b>City: </b>" + city + ", " + country+ "<br/>" + "<b>Temperature: </b>" + temperature + "°C" +  "<br/>" + "<b>Description: </b>"+ weatherDescrpt +  "<br/>" + "<b>Humidity: </b>" + humidity + "%"+  "<br/>" + "<b>Wind Speed: </b>" + windSpeed + "m/s");
-                });
                 
-                //document.getElementById("showResult").innerHTML = "Results: " + api_url + ".";
+                });
             }
         </script>
     </body>
