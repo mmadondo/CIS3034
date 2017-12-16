@@ -77,14 +77,17 @@
         </p>
         
         <p id="showResult"></p>
-        
+        <div class="row text-center">
+        <p style= "font-size: 14px">&copy;2017 Code Duluth. Designed with <i class = "fa fa-heart" style="color: red"></i> by Malvern Madondo. </p>
+     </div>
         <script> 
 
              function getWeather(){
                 var base_url = "http://api.openweathermap.org/data/2.5/weather?zip="
-                var api_key = "&APPID=acd3ddac4415c8e25c37121c5b18d182&units=metric";
+                var api_key = "&APPID=acd3ddac4415c8e25c37121c5b18d182&units=imperial";
                 var zip = document.getElementById("zipCode").value;
                 var api_url = base_url + zip + ",us" + api_key;
+                
 
                     $.getJSON(api_url, function( data ) {
                         var city = data.name;
@@ -93,8 +96,11 @@
                         var windSpeed = data.wind.speed;
                         var temperature = data.main.temp;
                         var weatherDescrpt = data.weather[0].description;
+                        var weatherIcon = data.weather[0].icon;
+                        var iconUrl = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
+                        
                     
-                     $('#showResult').html("<b>City: </b>" + city + ", " + country+ "<br/>" + "<b>Temperature: </b>" + temperature + "°C" +  "<br/>" + "<b>Description: </b>"+ weatherDescrpt +  "<br/>" + "<b>Humidity: </b>" + humidity + "%"+  "<br/>" + "<b>Wind Speed: </b>" + windSpeed + "m/s");
+                     $('#showResult').html("<img src='" + iconUrl  + "'>" + "<br/>" + "<b>City: </b>" + city + ", " + country+ "<br/>" + "<b>Temperature: </b>" + temperature + "°F" +  "<br/>" + "<b>Description: </b>"+ weatherDescrpt +  "<br/>" + "<b>Humidity: </b>" + humidity + "%"+  "<br/>" + "<b>Wind Speed: </b>" + windSpeed + "mph");
                 
                 });
             }
