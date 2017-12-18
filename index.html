@@ -10,189 +10,216 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script>
         
+        <script>
         $(function() {
-    var $accordions = $(".accordion").accordion({
-        collapsible: true,
-        active: false,
-        icons: false
-    }).on('click', function() {
-        $accordions.not(this).accordion('activate', false);
-    });
-});
+                var $accordions = $(".accordion").accordion({
+                    collapsible: true,
+                    active: false,
+                    icons: false
+                }).on('click', function() {
+                    $accordions.not(this).accordion('activate', false);
+                });
+            });
         </script>
     </head>
-    
+
     <body>
-        <div>
             <header>
-                <h1>Malvern Madondo</h1>
-                <img class="profile_pic" src="images/mal_HoloLens.jpg" width="300"> 
-            
+                <h1><a  style="text-decoration: none;" href="" class="typewrite" data-period="2000" data-type='["Hi there!!", "My name is Malvern Madondo!!", "Welcome to my page!!"]'>
+                    <span class="wrap"></span>
+                    </a>
+                </h1>
+
                 <!--Navigation Links-->
                 <div id="topnav">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="https://www.linkedin.com/in/malvernmadondo" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://github.com/mmadondo" target="_blank">GitHub</a></li>
-                        <li><a href="https://twitter.com/malvernmadondo" target="_blank">Twitter</a></li>
+                        <li class="active"><i class="fa fa-home" aria-hidden="true"></i> <a href="index.html">Home</a></li>
+                        <li><i class="fa fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/malvernmadondo" target="_blank">LinkedIn</a></li>
+                        <li><i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/mmadondo" target="_blank">GitHub</a></li>
+                        <li><i class="fa fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/malvernmadondo" target="_blank">Twitter</a></li>
                     </ul>
                 </div>
             </header>
-            
+
             <article>
-                <p>Kwaziso! Ndinofara kwazvo kuti washanyira website yangu. Ndinodzidza pachikoro chinonzi College of St. Scholastica chiri kuDuluth, MN. <br>Ndiri mugore rechitatu mandiri kudzidza Computer Information Systems ne Mathematics.<br> Pawebsite ino ndichange ndichinyora zvandiri kudzidza muCIS 3034 [Client-side Web Development course].<br>Stay tuned!</p> <!--endOf intro-->
+                <p id="bio">I am a junior at the College of St. Scholastica in Duluth, MN. <br>I study Computer Information Systems and Mathematics.<br> This page is an archive of the CIS 3034 [Client-side Web Development] course I took during Fall 2017.
+             <br></p> <!--endOf intro-->
+                <img class="profile_pic" src="images/malmad_twitter_prof.jpg" width="300">
+                
+                <!--script>
+                    $( function(){
+                        var transitionTime = 5000;
+                        var transitionSpeed = 300;
+                        
+                        var imgSlide = $("#slideshow");
+                        var listItems = imgSlide.children('LI');
+                        var listLength = listItems.length;
+                        var i = 0;
+                        let changeList = function(){
+                                listItems.eq(i).fadeOut(transitionSpeed, function(){
+                                    i += 1;
+                                    if (i === listLength){
+                                        i = 0;
+                                    }
+                                    listItems.eq(i).fadeIn(transitionSpeed);
+                                });
+                            };
+                        
+                        listItems.not(':first').hide();
+                        setInterval(changeList, transitionTime);
+                    });
+                    
+                </script-->
                 <hr>
                 
                 <p style="font-style: italic; animation: 2s flash; animation-iteration-count: infinite;">* Click on the [+] to open the collapsible content.</p>
-                
+
             </article>
-            
+
             <!--Week 1 stuff here-->
             <button class="accordion" style="text-align: center">Week 1</button>
                 <div class="panel">
                     <p style="font-style: italic">"The biggest room in the world is room for improvement." - Unknown</p>
                     <h4>Summary of my experience</h4>
                         <p>Prior to this class, I had basic knowledge of HTML5, CSS3, and JavaScript. I learned these from my on-campus job and from working on a side project where I made a full-responsive site using a template with boilerplate code.</p>
-                    
+
                     <h4>What I hope to learn in the class</h4>
                         <p>I am looking forward to learning more about front-end web dev, develop my JS programming skills,  Web APIs, different JS frameworks and technologies. I want to be able to make a web extension or web app by the end of the year, even after the class ends.</p>
-                    
+
                     <h4>What did you do this past week? </h4>
                         <p> This week I learned how to create an HTML DOM (<a href="https://tuftsdev.github.io/WebProgramming/notes/dom.html" target="_blank">
                             document object model</a>) from a web page's source code as well as how to debug a web page using Developer Tools or a text editor such as CodePen. I also learned how web pages are rendered including the roles of the browser, server, HTML, CSS, and Javascript</p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>Finding the best resource(s) to use without overwhelming myself! Having a lot of resources at hand sometimes makes it impossible to even start so I am hoping I will focus on at most 3 main resources that I will refer to as I learn about client-side web dev.</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>Intro to Javascript coming up. I will go through some basic tutorials and a few of the resources shared. </p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>Debugging is an interesting excercise! It was helpful going through the code on my own and talking to another student about the errors I found and what I did to resolve them. Also learned from listening to how others were debugging. I want to find a way to close all accordions except the one currently open. This is a javascript fix I think so it shouldn't be that hard to figure out //thanks to Google and eh Stack Overflow.</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>Tip: There is a plethora of resources out there and I think its best that I use a few that are more comprehensive and well-rounded than try to learn it all and use each one.
                         Resources I could use include: <a href="https://www.javascript.com/" target="_blank">Javascript.com</a>, <a href="http://eloquentjavascript.net/" target="_blank">Eloquent Javascript</a>, <a href="https://developer.mozilla.org/en-US/" target="_blank">Mozilla Developer's Network</a>, <a href="https://thenewboston.com" target="_blank">The New Boston </a>and <a href="http://www.json.org/" target="_blank">JSON website</a>.
                     </p>
                 </div> <!--endOf week 1-->
-            
-            
+
+
             <button class="accordion" style="text-align: center">Week 2</button>
                 <div class="panel">
                     <p style="font-style: italic">"A Journey of a thousand miles begins with one step." - Lao Tzu</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week I learned the basics of JavaScript. We explored how JS interacts with HTML/CSS variables, functions, arrays, popup boxes, etc I also learned about strongly-typed and loosely-typed languages as well as interpreted vs. compiled languages. Made a <a href="http://student.css.edu/CodeDuluth/Malvern/assignment2.html" target="_blank">Dateable Calculator</a> to find out if two people can date given ages.</p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>Our discussion this week entailed completing some challenges posted by students in class. My group (Sara, Alex, Jonathan, and I) did very well. I need to go through some challenges posted and find out where I'm getting stuck.</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>Next week, we will dive into basic JQuery. Time to polish up the JS and get going with JQuery!</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>Some really good challenges were posted in the discussion that I want to try to attempt as many as I can and learn more about JS that way!</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>Go through resources from last week and attempt challenges posted by other students. Also check out <a href = "https://github.com/txcsmad" target="_blank">MAD @ University of Texas at Austin  workshops</a></p>
                 </div>
 
             <button class="accordion" style="text-align: center">Week 3</button>
                 <div class="panel">
-                    <p style="font-style: italic">“Develop success from failures. Discouragement and failure
-are two of the surest stepping stones to success.” - Dale Carnegie</p>
+                    <p style="font-style: italic">“Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.” - Dale Carnegie</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week I was introduced to jQuery formally! I learned how elements on a web page are related in the Document Object Model. Also looked at manipulating elements using jQuery, which is a kind of Javascript library on wheels. This week, I made a web-based <a href= "http://student.css.edu/CodeDuluth/Malvern/assignment3.html" target="_blank">To-Do List app</a>.</p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>This week's assignment, to create a web page that will allow a user to create and maintain a to-do list, has been challenging. I am struggling with how to separate completed tasks from incomplete task and have them in a separate list. This is not a required feature but I am interested in implementing it or learning how to. A codepen I was going through had more advanced stuff which I am not ready to learn now. Will figure it out somehow.</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>We have our first exam next week in addition to learning how to respond to additional events, add effects to a page, and change the CSS dynamically using jQuery.</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>Reading the discussion posts shared online, I find it interesting that there's much to learn about jQuery such as animations, effects, chaining, detecting browsers, and callback functions.</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>Found this cool and <em>dark </em> website called <a href="http://superherojs.com/" target="_blank">SuperheroJS</a>. <a href = "https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a> also has some really helpful tutorials for front-end development.
                     </p>
                 </div>
-            
+
             <button class="accordion" style="text-align: center">Week 4</button>
                 <div class="panel">
                     <p style="font-style: italic">"Beware the barrenness of a busy life." - Socrates</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week I learned about jQuery Events, Effects, &amp; CSS. Also went through the jQuery API documentation and discussed various Javascript libraries. Had our first exam this week.</p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>I have made some progress since Week 1 and have started getting a firm handle on Javascript. I have also become familiar with jQuery and how it simplifies some Javascript functionalities.</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>We will advance and learn more about jQuery UI.</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>Finding best ways to implement various functions on one element without declaring each function separately.</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p><a href="https://ga-credentials.s3.amazonaws.com/production/uploads/2017/08/14/19/06/36/1427e585-6830-4d40-a2f6-74b87e71ea33/WD1%20Study%20Guide.pdf">General Assembly Study Guide</a></p>
                 </div>
-            
+
             <button class="accordion" style="text-align: center">Week 5</button>
                 <div class="panel">
                       <p style="font-style: italic">"A smooth sea never made a skillful sailor" - Proverb</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week we explored jQuery UI, focusing on: interactions, widgets, and effects (themes and animations).</p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>The assignment for this week was quite challenging. There were 2 options: Creating a web page that allows user to build a sortable accordion list with a modal dialog form that allows user to enter title and content of each accordion. OR Creating a simple game using jQuery that uses at least one interaction, widget, and effect. I did second option and made a simple <a href= "http://student.css.edu/CodeDuluth/Malvern/assignment4.html" target="_blank">Fruit Ninja Game</a>.</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>Learn about structured data: XML and JSON formats. Also explore parsing data using jQuery and using JSON data in AJAX requests.</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>I need to work more on the assignment and learn how to implement the different jQuery interactions, effects, and widgets.</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>None to share this week!
                     </p>
                 </div>
-            
+
             <button class="accordion" style="text-align: center">Week 6</button>
                 <div class="panel">
                       <p style="font-style: italic">"Slow progress is better than no progress." - Anon</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week I learned about AJAX and structured data (XML &amp; JSON formats). During the Kahoot quiz, we analysed an XML document to determine if it is valid and well-formed i.e has opening and closing tags as well as the root element. Learned to create an XML document with appropriate elements, attributes and relationships between elements (i.e. parent-child) Explored how to read, create and validate JSON data. In this unit, we explored how to get and parse JSON data using jQuery as well as use JSON data in AJAX requests</p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>Not practicing!</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>Brainstorm on final project ideas and prepare for exam 2.</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>None</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>W3School's tutorials on XML (Home through Attributes),  JS AJAX (Intro through Response), JSON (Intro through Arrays) and the getJSON() method (for use with AJAX).
                     </p>
                 </div>
-                
+
             <button class="accordion" style="text-align: center">Week 7</button>
                 <div class="panel">
                       <p style="font-style: italic">“The cave you fear to enter holds the treasure you seek.”― Joseph Campbell</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week I learned how to request and extract data from web APIs. </p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>This week's assignment involved extracting and displaying API data from the OpenWeatherMap API. I made a web app and it was hard finding the exact format to get the data from the API. Eventually discovered that to extract weather description and icon, i could use var weatherDescrpt = data.weather[0].description instead of data.weather.0.description - which is what I expected given the description is a child element of "0". Here is my assignment for this week: <a href="http://student.css.edu/codeduluth/malvern/unit7_openWeather.html" target = "_blank"> Weather App</a></p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>Final exam, project, and done! Posted my ideas for final project in the discussion.</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>I enjoyed learning more about APIs and look forward to making more API calls in the future! I want to use the Foursquare API as well as the Google Maps API to potentially display the location of each city on an actual map below the weather forecast!</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>We did not talk much about REST and SOAP APIs but there is always room to learn:
                             <a href="https://www.tutorialspoint.com/restful/" target="_blank"> TutorialsPoint RESTful Web Services Tutorial</a>,
@@ -201,28 +228,28 @@ are two of the surest stepping stones to success.” - Dale Carnegie</p>
                             <a href="https://www.tutorialspoint.com/soap/" target="_blank"> TutorialsPoint SOAP tutorial</a>
                     </p>
                 </div>
-            
+
             <button class="accordion" style="text-align: center">Week 8</button>
                 <div class="panel">
                       <p style="font-style: italic">"All excellent things are as difficult as they are rare." -- Benedict Spinoza</p>
                     <h4>What did you do this past week? </h4>
                         <p> This week we complete the course! </p>
-                    
+
                     <h4>What’s in your way?</h4>
                         <p>Lorem ipsum dolor sit amet, ...</p>
-                                       
+
                     <h4>What will you do next week?</h4>
                         <p>Lorem ipsum dolor sit amet, ...</p>
-                    
+
                     <h4>Impressions + Improvements</h4>
                         <p>Lorem ipsum dolor sit amet, ...</p>
-                    
+
                     <h4>Resources + Tip of the week</h4>
                         <p>Lorem ipsum dolor sit amet, ...
                     </p>
                 </div>
-            
-            <script>    
+
+            <script>
                 var acc = document.getElementsByClassName("accordion");
                 var panels = document.getElementsByClassName("panel");
                 var i;
@@ -238,15 +265,81 @@ are two of the surest stepping stones to success.” - Dale Carnegie</p>
                 }
 
                 for (i = 0; i < acc.length; i++) {
-                    acc[i].onclick = handleAccordionClick;    
+                    acc[i].onclick = handleAccordionClick;
                 }
-            </script>
 
- <p>Thank you for visiting my site!!.</p>      
-        </div>
-       <div class="row text-center">
-        <p style= "font-size: 14px">&copy;2017 Code Duluth. All Rights Reserved. Designed with <i class = "fa fa-heart" style="color: red"></i> by Malvern Madondo. </p>
-     </div>
+                //type-writing effect js
+                    var TxtType = function(el, toRotate, period) {
+                    this.toRotate = toRotate;
+                    this.el = el;
+                    this.loopNum = 0;
+                    this.period = parseInt(period, 10) || 2000;
+                    this.txt = '';
+                    this.tick();
+                    this.isDeleting = false;
+                };
+
+                TxtType.prototype.tick = function() {
+                    var i = this.loopNum % this.toRotate.length;
+                    var fullTxt = this.toRotate[i];
+
+                    if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                    } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                    }
+
+                    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+                    var that = this;
+                    var delta = 200 - Math.random() * 100;
+
+                    if (this.isDeleting) { delta /= 2; }
+
+                    if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                    } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 500;
+                    }
+
+                    setTimeout(function() {
+                    that.tick();
+                    }, delta);
+                };
+
+                window.onload = function() {
+                    var elements = document.getElementsByClassName('typewrite');
+                    for (var i=0; i<elements.length; i++) {
+                        var toRotate = elements[i].getAttribute('data-type');
+                        var period = elements[i].getAttribute('data-period');
+                        if (toRotate) {
+                          new TxtType(elements[i], JSON.parse(toRotate), period);
+                        }
+                    }
+
+                            // INJECT CSS
+                    var css = document.createElement("style");
+                    css.type = "text/css";
+                    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                    document.body.appendChild(css);
+                };
+
+            </script>
+         <hr>
+        <!---->
+        <footer id="footer">
+          <div class="container">
+              <div class="row">
+                  <div class="row text-center">
+                    <p style= "font-size: 10px">&copy;2017 Code Duluth. Designed with <i class = "fa fa-heart" style="color: red"></i> by Malvern Madondo. </p>
+                </div>
+            </div>
+          </div>
+        </footer>
+        <!---->
         
     </body>
 </html>

@@ -7,9 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="jquery-ui.min.css">
-    <script src="external/jquery/jquery.js"></script>
-    <script src="jquery-ui.min.js"></script>
+     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
 	<title>Fruit Ninja Game!</title>
 	<style>
@@ -72,23 +71,25 @@
 	</style>
 </head>
 <body>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--jquery UI to use for loading progress bar-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    
-    <h2 style="margin:5px; color: chartreuse; text-align: center">Fruit Matching Game</h2>
-    <p style="font-style: italic; text-align: center">Are you a fruit ninja? Match the fruits below with their names on the left!</p>
-    <div id ="progressbar"><div class="progress-label">Loading...</div></div>
-    <section id="fruitSection" style="align-content: center">
-    <div id="fruits"></div>
-    <div id="boxes"></div>
-    </section>
+    <h2 style="margin:5px; color: chartreuse; text-align: center; align-content: center">Fruit Matching Game</h2>
+    <p style="font-style: italic; text-align: center; align-content: center">Are you a fruit ninja? Match the fruits below with their names on the left!</p>
+    <div id ="progressbar">
+        <div class="progress-label">Loading...</div>
+    </div>
+        <section id="fruitSection" style="align-content: center">
+            <div id="fruits" style="align-content: center"></div>
+            <div id="boxes" style="align-content: center"></div>
+        </section>
 
         <button id="restart" style="margin-left: 150px; margin-top: 50px; font-weight: bold">Restart Game</button>
  
     
     <script>
-         $("#restart").hide(); //to show after game ends
+         $("#restart").hide(); //to show restart button after game ends
         
         //progress bar AT START
           $( function() {
@@ -180,7 +181,6 @@
         //progress bar value incrementing
         function progress() {
             var val = progressbar.progressbar( "value" ) || 0;
-            //$(this).css({"background": cyan});
             progressbar.progressbar( "value", val + 5 );
  
             if ( val < 95 ) {
