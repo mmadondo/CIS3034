@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Malvern Madondo"/>
+        <title>Contact Malvern!</title>
+        <link rel="stylesheet" type="text/css" href="contactStyle.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    
+    <body>
+          <div class="container">  
+              <form id="contact" action="">
+                <h3>Get in touch!</h3>
+            <marquee behavior="scroll" direction="left"  scrollamount="5">
+                <h4><i class="fa fa-terminal fa-1x" aria-hidden="true"></i> No need for snail-mail! Slide in my inbox here!! <i class="fa fa-paper-plane" aria-hidden="true"></i></h4></marquee>
+                <fieldset>
+                  <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+                </fieldset>
+                <fieldset>
+                  <input placeholder="Your Email Address" type="email" tabindex="2" required>
+                </fieldset>
+                <fieldset>
+                  <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+                </fieldset>
+                <fieldset>
+                  <textarea placeholder="Type your Message Here..." tabindex="4" required></textarea>
+                </fieldset>
+                <fieldset>
+                  <button name="submit" type="submit" id="contact-submit" onclick="myFunction()">Send Message</button>
+                </fieldset>
+              </form>
+            </div>
+        
+            <!--Script to return output based on user entries-->
+    <script>
+    function myFunction() {
+        alert("Your message has been sent!!");
+        document.getElementById("contact").reset();
+    }
+        
+        </script>
+    </body>
+</html>
