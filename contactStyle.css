@@ -1,18 +1,5 @@
 
 
-            * {
-                margin:0;
-                padding:0;
-                box-sizing:border-box;
-                -webkit-box-sizing:border-box;
-                -moz-box-sizing:border-box;
-                -webkit-font-smoothing:antialiased;
-                -moz-font-smoothing:antialiased;
-                -o-font-smoothing:antialiased;
-                font-smoothing:antialiased;
-                text-rendering:optimizeLegibility;
-            }
-
          /** Body Styling**/
          body {
               font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -34,6 +21,19 @@
                 font-weight: bold;
                 color: gold;
                 
+            }
+
+            * {
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                -webkit-font-smoothing:antialiased;
+                -moz-font-smoothing:antialiased;
+                -o-font-smoothing:antialiased;
+                font-smoothing:antialiased;
+                text-rendering:optimizeLegibility;
             }
 
 
@@ -191,3 +191,4 @@
             :-ms-input-placeholder {
              color:#888;
             }
+
