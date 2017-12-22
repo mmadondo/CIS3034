@@ -51,7 +51,7 @@
     <script>
         
         $(document).ready(function(){
-                var api_url = "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV";
+                var api_url = "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts?limit=50&api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV";
 
                 $.getJSON(api_url, function( data ) {
                     var blog = data.response.blog.title;    
