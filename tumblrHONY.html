@@ -30,8 +30,8 @@
             }
             
             img{
-                width: 250px;
-                height: 300px;
+                width: 540px;
+                height: 360px;
             }
             ul{
                 list-style-type: none;
@@ -46,15 +46,14 @@
     
 <body>
     <h2 id="blogTitle"></h2>
-    
+    <p style="font-style: italic">I used the Tumblr API to access the <a href="http://www.humansofnewyork.com/" target="_blank">Humans of New York</a>  posts. Each post is followed by the summary.</p><br>
     <ul id="resultList"></ul>
     <script>
         
         $(document).ready(function(){
                 var api_url = "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV";
-                
 
-                    $.getJSON(api_url, function( data ) {
+                $.getJSON(api_url, function( data ) {
                     var blog = data.response.blog.title;    
                      $('#blogTitle').html(blog);
 
@@ -64,16 +63,16 @@
                         var post = posts[i];
                         var type = post.type;
                         if(type == 'photo'){
-                text += '<li><a href='+post.post_url+' target="_blank"><img src=' + post.photos[0].original_size.url +'></a>' + post.caption + '</li>';
+                            text += '<li><a href='+post.post_url+' target="_blank"><img src=' + post.photos[0].original_size.url +'></a>' + post.caption + '</li>';
                         } else if(type == 'text'){
                             text += '<li>' +post.summary+ '</li>';
-                    }else{ 
-                        text += '<li>Some other post type<li>'; 
+                        }else { 
+                            text += '<li>Some other post type<li>'; 
                         }   
-                    }
-                    $("#resultList").append(text);
-                    });
-     });
+                      }
+                 $("#resultList").append(text);
+            });
+        });
     </script>
 
 </body>
