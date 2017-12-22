@@ -24,6 +24,14 @@ To access the website, please click [here](http://student.css.edu/codeduluth/mal
 * Standard HTML + Marquee elements
 ```
 
+## Projects & Assignments Included
+
+* [Dateable Calculator](http://student.css.edu/CodeDuluth/Malvern/assignment2.html) - User enters the age (in years) of two people and determines if they can date each other based on the "half your age plus seven" rule.
+* [To-Do List App](http://student.css.edu/CodeDuluth/Malvern/assignment3.html) - Allows a user to create and maintain a to-do list.
+* [Fruit Ninja Game](http://student.css.edu/codeduluth/malvern/assignment4.html) - A fruit matching game that uses jQuery interactions, widgets, and effects
+* [Weather App](http://student.css.edu/codeduluth/malvern/unit7_openWeather.html) - A web app that utilizes OpenWeatherMap API and the jQuery.getJSON() method to get weather data.
+* [HONY](http://student.css.edu/codeduluth/malvern/tumblrHONY.html) - Using Tumblr API, this page displays posts from the Humans of New York page.
+
 ## Author
 
 * **Malvern Madondo* - 2017
