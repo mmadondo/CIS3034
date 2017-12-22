@@ -30,7 +30,7 @@ To access the website, please click [here](http://student.css.edu/codeduluth/mal
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* I tip my hat to various contributors on Stack Overflow and many other users on CodePen
+* Many thanks to W3 Schools, MDN Web Dev Guide, Eloquent Javascript, and many other resources out there.
+* Website inspired by [Cassidy Williams](http://cassidoo.co/) - only hers is prettier and better :)
 
