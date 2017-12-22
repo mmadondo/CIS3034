@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Malvern Madondo"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Humans of New York</title>
+        <style>
+        
+         /** Body Styling**/
+         body {
+              font-family: 'Open Sans', sans-serif;
+              font-family: "robotoRegular";
+              font-size: 16px;
+              text-align: center;
+              margin: 0 auto;
+              float: none;
+              padding-top: 50px;
+              background-color: #0097A7;
+            }
+        
+            /** Heading Styling**/
+            h2{
+                font-size: 36px;
+                font-family: $open-sans;
+                font-weight: bold;
+            }
+            
+            img{
+                width: 250px;
+                height: 300px;
+            }
+            ul{
+                list-style-type: none;
+                align-content: left;
+            }
+            li{
+                padding-bottom: 15px;
+            }
+
+        </style>
+    </head>
+    
+<body>
+    <h2 id="blogTitle"></h2>
+    
+    <ul id="resultList"></ul>
+    <script>
+        
+        $(document).ready(function(){
+                var api_url = "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV";
+                
+
+                    $.getJSON(api_url, function( data ) {
+                    var blog = data.response.blog.title;    
+                     $('#blogTitle').html(blog);
+
+                    var posts = data.response.posts;
+                    var text = '';
+                    for(var i in posts){
+                        var post = posts[i];
+                        var type = post.type;
+                        if(type == 'photo'){
+                text += '<li><a href='+post.post_url+' target="_blank"><img src=' + post.photos[0].original_size.url +'></a>' + post.caption + '</li>';
+                        } else if(type == 'text'){
+                            text += '<li>' +post.summary+ '</li>';
+                    }else{ 
+                        text += '<li>Some other post type<li>'; 
+                        }   
+                    }
+                    $("#resultList").append(text);
+                    });
+     });
+    </script>
+
+</body>
+</html>
